@@ -3,6 +3,7 @@ node_modules
 npm-debug.log
 
 test/users/
+test.git/
 
 bower_components/
 

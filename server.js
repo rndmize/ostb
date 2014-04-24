@@ -18,13 +18,14 @@ share.server.attach(app, options);
 
 // var example = require('git-node/examples/create');
 // var example = require('git-node/examples/read');
-var files = require('./server/create');
-// files.createUser('alejandro');
+var create = require('./server/create');
+// create.createUser('alejandro');
 var userInfo = {
   name: 'alejandro',
   email: 'alejandro@ostb.io'
 }
-files.initRepo(userInfo, 'Intro Biology');
+// create.initRepo(userInfo, 'Intro Biology');
+var read = require('./server/read');
 
 
 app.get('/', function(req, res) {

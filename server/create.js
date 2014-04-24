@@ -14,8 +14,8 @@ exports.createUser = function(username) {
 exports.initRepo = function(user, repoName) {
   var repo = git.repo('../users/' + user.name + '/' + repoName + '.git');
   var commitInfo = {
-    author: { name: "Tim Caswell", email: "tim@creationix.com" },
-    committer: { name: "JS-Git", email: "js-git@creationix.com" },
+    author: { name: user.name, email: user.email },
+    committer: { name: user.name, email: user.email },
     commits: {}
   }
   commitInfo.commits['Created a new book: ' + repoName] = {
@@ -101,7 +101,6 @@ function parallelEach(object, fn, callback) {
   }
 }
 
-// Create a filesystem backed bare repo
 // var repo = git.repo("test.git");
 // var mock = {
 //   author: { name: "Tim Caswell", email: "tim@creationix.com" },
