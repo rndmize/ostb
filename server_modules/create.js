@@ -25,6 +25,17 @@ exports.initRepo = function(user, repoName) {
   saveRepo(repo, commitInfo);
 }
 
+exports.commit = function(user, repoName, commit) {
+  var repo = git.repo('../users/' + user.name + '/' + repoName + '.git');
+  var commitInfo = {
+    author: { name: user.name, email: user.email },
+    committer: { name: user.name, email: user.email },
+    commits: {}
+  }
+  commitInfo.commits[commit.name] = commit.info;
+  
+  saveRepo(repo, commitInfo);
+}
 
 function saveRepo(repo, commitInfo)  {
   repo.setHead("master", function (err) {
@@ -55,10 +66,10 @@ function saveRepo(repo, commitInfo)  {
             committer: commitInfo.committer,
             message: message
           };
-          if (!parent) delete commit.parent;
+          // if (!parent) delete commit.parent;
           repo.saveAs("commit", commit, function (err, hash) {
             if (err) return next(err);
-            parent = hash;
+            // parent = hash;
             repo.updateHead(hash, next);
           });
         });

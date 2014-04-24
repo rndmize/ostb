@@ -25,9 +25,17 @@ var userInfo = {
   email: 'alejandro@ostb.io'
 }
 // create.initRepo(userInfo, 'Intro Biology');
-// var read = require('./server_modules/read');
+var commit = {
+  name: 'Version 2',
+  info: {
+    'example.txt': 'Welcome. This is the first version of your new textbook. This is an addition.',
+    'p1.txt': 'This is an additional file.'
+  }
+}
+// create.commit(userInfo, 'Intro Biology', commit);
+var read = require('./server_modules/read');
 // var walk = require('./server_modules/walk');
-var write = require('./server_modules/write');
+// var write = require('./server_modules/write');
 
 
 app.get('/', function(req, res) {

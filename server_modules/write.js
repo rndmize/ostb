@@ -43,11 +43,10 @@ function logCommit(commit) {
 }
 
 function logEntry(entry) {
-  // console.log(entry);
   if(entry.type === 'blob') {
     console.log(entry);
     return fs.writeFile('../users/alejandro/Intro Biology.git/' + entry.name, entry.body, function() {
-      console.log('created file');
+      console.log('wrote file: ', entry.name);
     });
   }
 }
@@ -56,27 +55,5 @@ function logEnd(shallow) {
   var message = shallow ? "End of shallow record." : "Beginning of history";
   console.log("\n\x1B[30;1m%s\x1B[0m\n", message);
 }
-//////////////
 
-// var read;
-// repo.treeWalk(ref, function (err, stream) {
-//   if (err) throw err;
-//   read = stream.read;
-//   return read(onEntry);
-// });
-
-// function onEntry(err, entry) {
-//   if (err) throw err;
-//   if (!entry) return;
-//   var path = '';
-//   if (entry.type === "blob") {
-//     return fs.writeFile(path, entry.body, onDone);
-//   }
-//   return read(onEntry);
-// }
-
-// function onDone(err) {
-//   if (err) throw err;
-//   return read(onEntry);
-// }
 
