@@ -18,6 +18,8 @@ share.server.attach(app, options);
 
 // var example = require('git-node/examples/create');
 // var example = require('git-node/examples/read');
+var example = require('./server/create');
+
 
 
 app.get('/', function(req, res) {
